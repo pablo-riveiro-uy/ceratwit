@@ -58,7 +58,7 @@ export default function Home() {
                         {errors.nombre && <span>🛸 Hey, incluye un nombre 🛸</span>}
                         <button className='boton' type='submit'>Envíar</button>
                     </form>
-                    {messageSent && <div className="success-message">Mensaje enviado, gracias!</div>} {/* Mensaje de éxito */}
+                    {messageSent && <span className="success-message">🛸 Mensaje enviado, gracias! 🛸</span>} {/* Mensaje de éxito */}
                     <Footer />
                 </main>
             </section>

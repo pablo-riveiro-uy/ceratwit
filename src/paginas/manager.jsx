@@ -41,7 +41,7 @@ export default function Manager() {
         <> <div className='manager-container'>
 
             <h2 className='manager-title'>Ceratwit Manager</h2>
-            <section style={{height: '100%', display: 'flex', flexDirection: 'column', backGroundColor: 'black'}}>
+            <section style={{width: '80vw',height: '100%', display: 'flex', flexDirection: 'column', backGroundColor: 'black'}}>
                 {data.map((d) => (
                     <article key={d.id} style={{ color: "white", display: 'flex', border: 'solid 1px white', backGroundColor: 'black' }}>
                         <div className="nombre">

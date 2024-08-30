@@ -37,9 +37,9 @@ body {
 .boton {
   border-radius: 50px;
   margin: 5px;
-  padding: 1em 2em;
+  padding: 10px 15px;
   color: #000000;
-  padding: 20px;
+
 }
 
 .boton:hover {
@@ -52,7 +52,6 @@ body {
   min-height: 80vh;
   justify-content: start;
   align-items: center;
-
 
 }
 
@@ -112,15 +111,15 @@ body {
 }
 
 .texto {
-  min-width: 10em;
-  max-width: 15em;
+  min-width: 25vw;
+  max-width: 40vw;
   text-align: left;
 }
 .nombre {
   margin-left: 1em;
   margin-right: 1em;
-  min-width: 10em;
-  max-width: 20em;
+  min-width: 5em;
+  max-width: 15em;
   text-align: left;
 }
 
