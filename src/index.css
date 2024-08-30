@@ -111,8 +111,7 @@ body {
 }
 
 .texto {
-  min-width: 25vw;
-  max-width: 40vw;
+  width: 40vw;
   text-align: left;
 }
 .nombre {

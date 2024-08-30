@@ -20,13 +20,13 @@ export default function Manager() {
 
     // Handle checkbox change
     const handleCheckboxChange = (id) => {
-        setData(prevData => 
-            prevData.map(item => 
+        setData(prevData =>
+            prevData.map(item =>
                 item.id === id ? { ...item, aprobado: !item.aprobado } : item
             )
         );
     };
-    
+
 
     // Handle form submission
 
@@ -41,7 +41,7 @@ export default function Manager() {
         <> <div className='manager-container'>
 
             <h2 className='manager-title'>Ceratwit Manager</h2>
-            <section style={{width: '80vw',height: '100%', display: 'flex', flexDirection: 'column', backGroundColor: 'black'}}>
+            <section style={{ width: '85vw', height: '100%', display: 'flex', flexDirection: 'column', backGroundColor: 'black' }}>
                 {data.map((d) => (
                     <article key={d.id} style={{ color: "white", display: 'flex', border: 'solid 1px white', backGroundColor: 'black' }}>
                         <div className="nombre">
@@ -50,26 +50,25 @@ export default function Manager() {
                         <div className="texto">
                             <p>{d.texto}</p>
                         </div>
-                        <div style={{ textAlign: 'center', marginLeft: '3em' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: 'auto%', textAlign: 'center'}}>
                             <p style={{ color: 'white' }}>Visible</p>
                             <input
                                 type="checkbox"
                                 checked={d.aprobado} // Reflect the current state
                                 onChange={() => handleCheckboxChange(d.id)} // Update the state for this checkbox
                             />
+                            <button style={{ alignSelf: 'center' }}
+                                className='boton'
+                                onClick={() => onSubmit(d.id, d.aprobado)} // Submit the current state
+                            >
+                                Actualizar
+                            </button>
                         </div>
-                        <div style={{display: 'flex', justifyContent:'end', width: '100%'}}>
 
-                        <button style={{alignSelf: 'center'}}
-                            className='boton' 
-                            onClick={() => onSubmit(d.id, d.aprobado)} // Submit the current state
-                        >
-                            Actualizar
-                        </button>
-                        </div>
-                        
+
+
                     </article>
-                    
+
                 ))}
             </section>
         </div>
