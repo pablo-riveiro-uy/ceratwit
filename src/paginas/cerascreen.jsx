@@ -52,7 +52,7 @@ export default function CeraScreen() {
                 <Footer/>
                 {visibleArticles.map((d) => (
                     <article className='mensaje animate__animated animate__backInLeft' key={d.id}>
-                        <p>{d.texto}</p>
+                        <p >{d.texto}</p>
                         <h4 style={{ fontStyle: 'italic' }}>{d.nombre}</h4>
                     </article>
                 ))}
