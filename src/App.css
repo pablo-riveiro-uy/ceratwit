@@ -1,0 +1,58 @@
+#root {
+  max-width: 1280px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+header {
+  background-color: rgb(247, 247, 247, 0.5);
+  padding: 10px 20px;
+  margin-top: 2em;
+  width: 100vw;
+
+}
+
+.elemento {
+  color: rgb(247, 247, 247);
+  border-radius: 35px;
+  padding: 20px 10px;
+}
+
+.textarea {
+  margin: 2em;
+  width: 75%;
+  color: rgb(247, 247, 247);
+  border-radius: 35px;
+  padding: 20px 10px;
+}
+
+.count {
+  align-self: end;
+  margin-right: 2em;
+  color: rgb(247, 247, 247);
+  background-color: black;
+  border-radius: 35px;
+  padding: 10px 20px;
+}
+
+span {
+  color: blueviolet;
+  background-color: black;
+  padding: 0 2em 0 2em;
+}
