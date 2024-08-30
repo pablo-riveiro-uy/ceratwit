@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import { useState } from 'react'
 import { collection, addDoc } from 'firebase/firestore'
 import { db } from '../firebase/configFirebase.'
+import Footer from '../components/footer'
 
 export default function Home() {
 
@@ -52,8 +53,9 @@ export default function Home() {
                     <div className='count'>{chars}</div>
                     {errors.texto?.type === 'required' && <span>🛸 Por favor, escribe un mensaje 🛸</span>}
                     {errors.texto?.type === 'maxLength' && <span>🛸 Puedes escribir hasta 140 caracteres 🛸</span>}
-                    <label className='elemento' htmlFor="nombre">Tu nombre </label>
+                    <label className='label-nombre' htmlFor="nombre">Tu nombre </label>
                     <input
+                    style={{color: 'white'}}
                         className='elemento'
                         type="text"
                         {...register('nombre', {
@@ -63,9 +65,9 @@ export default function Home() {
                     />
                     {errors.nombre && <span>🛸 Hey, incluye un nombre 🛸</span>}
 
-                    <button className='elemento' type='submit'>Envíar</button>
+                    <button className='boton' type='submit'>Envíar</button>
                 </form>
-
+                <Footer/>
             </main>
         </section>
         </>

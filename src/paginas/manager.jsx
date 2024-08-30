@@ -35,9 +35,12 @@ export default function Manager() {
         await updateDoc(mensajeRef, { aprobado }); // Enviar el valor actual del checkbox
         console.log(`Mensaje con ID ${id} actualizado a aprobado: ${aprobado}`);
     };
+
+
     return (
-        <>
-            <header ><h2>Ceratwit Manager</h2></header>
+        <> <div className='manager-container'>
+
+            <h2 className='manager-title'>Ceratwit Manager</h2>
             <section style={{height: '100%', display: 'flex', flexDirection: 'column', backGroundColor: 'black'}}>
                 {data.map((d) => (
                     <article key={d.id} style={{ color: "white", display: 'flex', border: 'solid 1px white', backGroundColor: 'black' }}>
@@ -48,7 +51,7 @@ export default function Manager() {
                             <p>{d.texto}</p>
                         </div>
                         <div style={{ textAlign: 'center', marginLeft: '3em' }}>
-                            <p style={{ color: 'white', margin: '0' }}>Visible</p>
+                            <p style={{ color: 'white' }}>Visible</p>
                             <input
                                 type="checkbox"
                                 checked={d.aprobado} // Reflect the current state
@@ -58,7 +61,7 @@ export default function Manager() {
                         <div style={{display: 'flex', justifyContent:'end', width: '100%'}}>
 
                         <button style={{alignSelf: 'center'}}
-                            className='elemento' 
+                            className='boton' 
                             onClick={() => onSubmit(d.id, d.aprobado)} // Submit the current state
                         >
                             Actualizar
@@ -69,6 +72,7 @@ export default function Manager() {
                     
                 ))}
             </section>
+        </div>
         </>
     );
 }
