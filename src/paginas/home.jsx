@@ -9,6 +9,7 @@ import Footer from '../components/footer';
 export default function Home() {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [chars, setChars] = useState(0);
+    const [messageSent, setMessageSent] = useState(false); // Estado para el mensaje de éxito
 
     const handleCount = () => {
         const textarea = document.getElementById('mensaje');
@@ -21,6 +22,7 @@ export default function Home() {
         Object.assign(data, { aprobado: false });
         await addDoc(mensajeRef, data);
         reset(); // Resetea el formulario después de enviar
+        setMessageSent(true); // Muestra el mensaje de éxito
     });
 
     return (
@@ -56,6 +58,7 @@ export default function Home() {
                         {errors.nombre && <span>🛸 Hey, incluye un nombre 🛸</span>}
                         <button className='boton' type='submit'>Envíar</button>
                     </form>
+                    {messageSent && <div className="success-message">Mensaje enviado, gracias!</div>} {/* Mensaje de éxito */}
                     <Footer />
                 </main>
             </section>
