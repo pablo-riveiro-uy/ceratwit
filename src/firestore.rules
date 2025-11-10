@@ -1,0 +1,38 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Admin opcional: usuario con rol admin en /roles/{uid}
+    function isAdmin() {
+      return request.auth != null &&
+             get(/databases/$(database)/documents/roles/$(request.auth.uid)).data.admin == true;
+    }
+
+    // Mensajes del evento
+    match /mensajes/{id} {
+      // Lectura pública solo de aprobados; admins ven todo
+      allow read: if (resource.data.aprobado == true) || isAdmin();
+
+      // Crear mensaje público con restricciones
+      allow create: if
+        request.resource.data.keys().hasOnly(['texto','nombre','aprobado','createdAt']) &&
+        request.resource.data.aprobado == false &&
+        request.resource.data.texto is string &&
+        request.resource.data.texto.size() >= 1 &&
+        request.resource.data.texto.size() <= 140 &&
+        // Bloqueo básico de HTML/script
+        !(request.resource.data.texto.matches('(?i).*(<[^>]+>|script|onerror|onload).*')) &&
+        request.resource.data.nombre is string &&
+        request.resource.data.nombre.size() <= 60 &&
+        (request.resource.data.createdAt is timestamp || request.resource.data.createdAt is int);
+
+      // Moderación y borrado solo para admins
+      allow update, delete: if isAdmin();
+    }
+
+    // (Opcional) colección de roles: solo visible para el propio usuario
+    match /roles/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow write: if false; // roles se gestionan fuera del cliente
+    }
+  }
+}
